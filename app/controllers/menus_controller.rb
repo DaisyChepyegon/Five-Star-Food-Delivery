@@ -1,4 +1,5 @@
 class MenusController < ApplicationController
+  rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
   def index
     menu = Menu.all 
@@ -6,47 +7,39 @@ class MenusController < ApplicationController
   end
 
   def show
-    menu = Menu.find(params[:id])
-    if menu
-      render json: menu, include: :reviews
-    else
-      render json: {error: 'menu not found'}, status: :not_found
-    end
+    menu = find_menu
+    render json: menu, serializer: MenuwithreviewSerializer
   end
 
   def create
     menu = Menu.create(menu_params)
-    if menu
       render json: menu, status: :created
-    else
-      render json: {error: 'menu not found'}, status: :not_found
-    end
   end
 
   def update
-    menu = Menu.find(params[:id])
-    if menu
+    menu = find_menu
       menu.update(menu_params)
       render json: menu
-    else
-      render json: {error: 'menu not found'}, status: :not_found
-    end
   end
 
   def destroy
-    menu = Menu.find(params[:id])
-    if menu
+    menu = find_menu
       menu.destroy
       head :no_content
-    else
-      render json: {error: 'menu not found'}, status: :not_found
-    end
   end
 
   private
 
   def menu_params
     params.permit(:name, :location)
+  end
+
+  def find_menu
+    Menu.find(params[:id])
+  end
+
+  def render_not_found_response
+    render json: {error: 'Menu not found'}, status: :not_found
   end
 
 end

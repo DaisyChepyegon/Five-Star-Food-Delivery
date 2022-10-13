@@ -1,47 +1,31 @@
 class RestaurantsController < ApplicationController
-  wrap_parameters format: []
+  rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
   def index
     restaurant = Restaurant.all 
-    render json: restaurant
+    render json: restaurant, include: :reviews
   end
 
   def show
-    restaurant = Restaurant.find(params[:id])
-    if restaurant
-      render json: restaurant
-    else
-      render json: (error: "Restaurant not Found"), status: :not_found
-    end
+    restaurant = find_restaurant
+      render json: restaurant, include: :reviews
   end
 
   def create
     restaurant = Restaurant.create(restaurant_params)
-    if restaurant
       render json: restaurant, status: :created
-    else
-      render json: (error: "Restaurant not created"), status: :unprocessible_entity
-    end
   end
 
   def update
-    restaurant = Restaurant.find(params[:id])
-    if restaurant
-      Restaurant.update(restaurant_params)
+    restaurant = find_restaurant
+      restaurant.update(restaurant_params)
       render json: restaurant
-    else
-      render json: (error: "Restaurant not updated"), status: :not_found
-    end
   end
 
   def destroy
-    restaurant = Restaurant.find(params[:id])
-    if restaurant
-      Restaurant.destroy
+    restaurant = find_restaurant
+      restaurant.destroy
       head :no_content
-    else
-      render json: (error: "Restaurant not updated"), status: :not_found
-    end
   end
 
   private
@@ -49,5 +33,14 @@ class RestaurantsController < ApplicationController
   def restaurant_params
     params.permit(:name, :location)
   end
+
+  def find_restaurant
+    Restaurant.find(params[:id])
+  end
+
+  def render_not_found_response
+    render json: {error: 'Restaurant not found'}, status: :not_found
+  end
+
 
 end

@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
   def index
     review = Review.all 
@@ -6,47 +7,39 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    review = Review.find(params[:id])
-    if review
+    review = find_reviews
       render json: review
-    else
-      render json: {error: 'review not found'}, status: :not_found
-    end
   end
 
   def create
     review = Review.create(review_params)
-    if review
       render json: review, status: :created
-    else
-      render json: {error: 'review not found'}, status: :not_found
-    end
   end
 
   def update
-    review = Review.find(params[:id])
-    if review
+    review = find_reviews
       review.update(review_params)
       render json: review
-    else
-      render json: {error: 'review not found'}, status: :not_found
-    end
   end
 
   def destroy
-    review = Review.find(params[:id])
-    if review
+    review = find_reviews
       review.destroy
       head :no_content
-    else
-      render json: {error: 'review not found'}, status: :not_found
-    end
   end
 
   private
 
   def review_params
     params.permit(:reviews, :rating, :restaurant_id, :menu_id)
+  end
+
+  def find_reviews
+    Review.find(params[:id])
+  end
+
+  def render_not_found_response
+    render json: {error: 'Menu not found'}, status: :not_found
   end
 
 end
