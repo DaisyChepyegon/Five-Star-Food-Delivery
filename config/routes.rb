@@ -2,7 +2,13 @@ Rails.application.routes.draw do
   resources :reviews, only: [:index, :show, :create, :update, :destroy]
   resources :menus, only: [:index, :show, :create, :update, :destroy]
   resources :restaurants, only: [:index, :show, :create, :update, :destroy]
- 
+
 
   get '/hello', to: 'application#hello_world'
+
+  post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
+
+  post "/signup", to: "customers#create"
+  get "/me", to: "customers#show"
 end
