@@ -6,9 +6,9 @@ class MenusController < ApplicationController
   end
 
   def show
-    menu = Menu.find(params[:id])
+    menu = find_menu
     if menu
-      render json: menu, include: :reviews
+      render json: menu, serializer: MenuwithreviewSerializer
     else
       render json: {error: 'menu not found'}, status: :not_found
     end
@@ -24,7 +24,7 @@ class MenusController < ApplicationController
   end
 
   def update
-    menu = Menu.find(params[:id])
+    menu = find_menu
     if menu
       menu.update(menu_params)
       render json: menu
@@ -34,7 +34,7 @@ class MenusController < ApplicationController
   end
 
   def destroy
-    menu = Menu.find(params[:id])
+    menu = find_menu
     if menu
       menu.destroy
       head :no_content
@@ -47,6 +47,10 @@ class MenusController < ApplicationController
 
   def menu_params
     params.permit(:name, :location)
+  end
+
+  def find_menu
+    Menu.find(params[:id])
   end
 
 end

@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    review = Review.find(params[:id])
+    review = find_reviews
     if review
       render json: review
     else
@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
   end
 
   def update
-    review = Review.find(params[:id])
+    review = find_reviews
     if review
       review.update(review_params)
       render json: review
@@ -34,7 +34,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    review = Review.find(params[:id])
+    review = find_reviews
     if review
       review.destroy
       head :no_content
@@ -47,6 +47,10 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.permit(:reviews, :rating, :restaurant_id, :menu_id)
+  end
+
+  def find_reviews
+    Review.find(params[:id])
   end
 
 end

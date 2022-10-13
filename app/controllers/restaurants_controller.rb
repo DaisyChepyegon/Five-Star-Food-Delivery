@@ -6,7 +6,7 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-    restaurant = Restaurant.find(params[:id])
+    restaurant = find_restaurant
     if restaurant
       render json: restaurant, include: :reviews
     else
@@ -24,7 +24,7 @@ class RestaurantsController < ApplicationController
   end
 
   def update
-    restaurant = Restaurant.find(params[:id])
+    restaurant = find_restaurant
     if restaurant
       restaurant.update(restaurant_params)
       render json: restaurant
@@ -34,7 +34,7 @@ class RestaurantsController < ApplicationController
   end
 
   def destroy
-    restaurant = Restaurant.find(params[:id])
+    restaurant = find_restaurant
     if restaurant
       restaurant.destroy
       head :no_content
@@ -47,6 +47,10 @@ class RestaurantsController < ApplicationController
 
   def restaurant_params
     params.permit(:name, :location)
+  end
+
+  def find_restaurant
+    Restaurant.find(params[:id])
   end
 
 
