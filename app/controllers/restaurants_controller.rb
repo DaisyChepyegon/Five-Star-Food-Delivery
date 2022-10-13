@@ -1,17 +1,16 @@
 class RestaurantsController < ApplicationController
-  wrap_parameters format: []
 
   def index
     restaurant = Restaurant.all 
-    render json: restaurant
+    render json: restaurant, include: :reviews
   end
 
   def show
     restaurant = Restaurant.find(params[:id])
     if restaurant
-      render json: restaurant
+      render json: restaurant, include: :reviews
     else
-      render json: (error: "Restaurant not Found"), status: :not_found
+      render json: {error: 'restaurant not found'}, status: :not_found
     end
   end
 
@@ -20,27 +19,27 @@ class RestaurantsController < ApplicationController
     if restaurant
       render json: restaurant, status: :created
     else
-      render json: (error: "Restaurant not created"), status: :unprocessible_entity
+      render json: {error: 'restaurant not found'}, status: :not_found
     end
   end
 
   def update
     restaurant = Restaurant.find(params[:id])
     if restaurant
-      Restaurant.update(restaurant_params)
+      restaurant.update(restaurant_params)
       render json: restaurant
     else
-      render json: (error: "Restaurant not updated"), status: :not_found
+      render json: {error: 'restaurant not found'}, status: :not_found
     end
   end
 
   def destroy
     restaurant = Restaurant.find(params[:id])
     if restaurant
-      Restaurant.destroy
+      restaurant.destroy
       head :no_content
     else
-      render json: (error: "Restaurant not updated"), status: :not_found
+      render json: {error: 'restaurant not found'}, status: :not_found
     end
   end
 
@@ -49,5 +48,6 @@ class RestaurantsController < ApplicationController
   def restaurant_params
     params.permit(:name, :location)
   end
+
 
 end
