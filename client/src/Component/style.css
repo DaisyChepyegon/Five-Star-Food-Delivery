@@ -1,0 +1,10 @@
+body {
+    background-color: #F8F9FA;
+}
+
+
+
+.carousel-item img{
+    box-sizing: border-box;
+    width: 100%;
+}
