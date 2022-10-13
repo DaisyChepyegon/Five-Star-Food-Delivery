@@ -1,7 +1,7 @@
 class CustomersController < ApplicationController
     before_action :authorize, only: [show]
 
-    def Create
+    def create
         customer = Customer.create(customer_params)
         if user.valid?
             render json: customer, status: :created
@@ -15,5 +15,11 @@ class CustomersController < ApplicationController
         render json: customer 
     end
 
+    def authorize 
+        return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
+    end
 
+    def user_params 
+        params.permit(:first_name, :second_name, :password, :password_confirmation)
+    end
 end
