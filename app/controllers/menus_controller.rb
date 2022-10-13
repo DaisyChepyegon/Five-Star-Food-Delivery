@@ -2,13 +2,13 @@ class MenusController < ApplicationController
 
   def index
     menu = Menu.all 
-    render json: menu
+    render json: menu, include: :reviews
   end
 
   def show
     menu = Menu.find(params[:id])
     if menu
-      render json: menu
+      render json: menu, include: :reviews
     else
       render json: {error: 'menu not found'}, status: :not_found
     end
