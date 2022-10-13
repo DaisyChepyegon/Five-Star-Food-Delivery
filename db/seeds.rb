@@ -1,7 +1,29 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+
+
+Restaurant.create(name: "Chepchikoni", location: "Thika road")
+Restaurant.create(name: "CJ's", location: "Koinange street")
+Restaurant.create(name: "Urban Eatery", location: "PwC tower")
+Restaurant.create(name: "Tatu Restaurant", location: "Harry Thuku road")
+Restaurant.create(name: "Hero Restaurant", location: "Village Market")
+Restaurant.create(name: "Nairobi Street Kitchen", location: "Mpaka road")
+
+Menu.create(name: "tea", price: "50", category: "breafast", description: "very milky and sweet", image: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8dGVhfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=700&q=60")
+Menu.create(name: "mandazi", price: "30", category: "breakfast", description: "deep fried dough", image: "https://img.buzzfeed.com/thumbnailer-prod-us-east-1/69e427ab880d491d8aba5877bb82d975/OO_Mandazi.jpg?resize=1200:*")
+Menu.create(name: "samosa", price: "100", category: "breakfast", description: "small triangular deep fried pockets with spicy meat and vegetables", image: "https://images.unsplash.com/photo-1601050690294-397f3c324515?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2Ftb3NhfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=700&q=60")
+Menu.create(name: "fried fish", price: "400", category: "lunch", description: "fried seasoned fish fillets with spices", image: "https://images.unsplash.com/photo-1606234157216-2e1fcbf0c140?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGZyaWVkJTIwZmlzaHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60")
+Menu.create(name: "wali wa nazi", price: "650", category: "lunch", description: "rice cooked with fresh coconut milk", image: "https://images.unsplash.com/photo-1619957666910-bf7ba37cda1b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y29jb251dCUyMHJpY2V8ZW58MHx8MHx8&auto=format&fit=crop&w=700&q=60")
+Menu.create(name: "kuku paka", price: "450", category: "dinner", description: "char grilled chicken with coconut milk", image: "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80")
+Menu.create(name: "mokimo", price: "100", category: "lunch", description: "one pot dish consisting of potatoes,corn,peas and greens", image: "https://images.unsplash.com/photo-1633436375153-d7045cb93e38?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFzaGVkJTIwcG90YXRvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=700&q=60")
+Menu.create(name: "githeri", price: "120", category: "lunch", description: "food consisting of beans and maize", image: "https://fauziaskitchenfun.com/wp-content/uploads/2013/03/104.jpg")
+Menu.create(name: "ugali", price: "100", category: "dinner", description: "made from rolling a tiny bit of creamy thick cornmeal(maize)", image: "https://upload.wikimedia.org/wikipedia/commons/4/48/Ugali_%26_Sukuma_Wiki.jpg")
+Menu.create(name: "nyama choma", price: "500", category: "dinner", description: "barbercued meat ususally goat or beef", image: "https://images.unsplash.com/photo-1529694157872-4e0c0f3b238b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cm9hc3RlZCUyMGJlZWZ8ZW58MHx8MHx8&auto=format&fit=crop&w=700&q=60")
+Menu.create(name: "bhajias", price: "50", category: "breakfast", description: "cooked by dipping slices of potatoes into a mixture of gramflour and strong spice", image: "https://jayne-rain.com/wp-content/uploads/2020/01/potato-bhajia-5.jpg")
+Menu.create(name: "mutura", price: "150", category: "dinner", description: "kenyan sausage", image: "https://cdn.tasteatlas.com/Images/Dishes/514401520e9b4c438841c5bf8a9f439b.jpg")
+Menu.create(name: "chapati", price: "40", category: "breakfast", description: "unleavened flat bread", image: "https://i.ytimg.com/vi/WKD00uAbepk/maxresdefault.jpg")
+
+Review.create(rating: "5", reviews: "the chicken was so great", restaurant_id: "1", menu_id: "6")
+Review.create(rating: "4", reviews: "the food arrived a bit late", restaurant_id: "2", menu_id: "5")
+Review.create(rating: "3", reviews: "the fish had too much salt", restaurant_id: "3", menu_id: "4")
+Review.create(rating: "4", reviews: "samosas has more meat than vegetables", restaurant_id: "4", menu_id: "3")
+Review.create(rating: "3", reviews: "the mandazi is so sweet", restaurant_id: "5", menu_id: "2")
+Review.create(rating: "5", reviews: "their teas is creamy", restaurant_id: "6", menu_id: "1")
