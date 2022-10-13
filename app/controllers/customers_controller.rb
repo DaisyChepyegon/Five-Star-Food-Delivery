@@ -10,5 +10,10 @@ class CustomersController < ApplicationController
         end
     end
 
-    
+    def show 
+        customer = Customer.find_by(id: session[:customer_id])
+        render json: customer 
+    end
+
+
 end
