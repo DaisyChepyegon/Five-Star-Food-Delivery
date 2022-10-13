@@ -13,11 +13,25 @@ function Navbar() {
             
               <ul className="nav justify-content-end">
                 <Link className="nav-link active" aria-current="page"  to='/'>HOME</Link>                
-                <Link className='nav-link' to='/menu'>Menu</Link>              
-                <Link className='nav-link' to='/restuarants'>Restuarants</Link>
-                <Link className="nav-link" to='/categories'>Categories</Link>  
-                <Link className='nav-link' to='/name'>Name</Link>
-                <Link className='nav-link' to='/price'>Price</Link>
+                <Link className='nav-link' to='/menu'>MENU</Link>              
+                <Link className='nav-link' to='/restuarants'>RESTURANT</Link>
+                <Link className="nav-link" to='/categories'>CATEGORIES</Link>  
+                <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                Search By 
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem>
+                <Link className="nav-link" to="/searchbyname">NAME</Link>
+                </DropdownItem>
+                <DropdownItem>
+                <Link className="nav-link" to="/searchbyprice">PRICE</Link>
+                </DropdownItem>
+                <DropdownItem>
+                <Link className="nav-link" to="/searchbyrating">RATING</Link>
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
               </ul>
             </div> 
         
