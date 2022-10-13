@@ -18,6 +18,33 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_13_074443) do
     t.string "first_name"
     t.string "second_name"
     t.string "password_digest"
+
+ActiveRecord::Schema[7.0].define(version: 2022_10_13_074731) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "menus", force: :cascade do |t|
+    t.string "name"
+    t.string "image"
+    t.integer "price"
+    t.string "category"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "restaurants", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.string "reviews"
+    t.integer "restaurant_id"
+    t.integer "menu_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
