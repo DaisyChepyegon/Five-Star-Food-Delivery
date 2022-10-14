@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import {connect} from 'react-redux'
+import {getItems, getButton} from '../redux/action/menu'
+import {APP_URL} from '../resources/config'
+import {Link} from 'react-router-dom'
+import NumberFormat from 'react-number-format'
+import StartRatings from 'react-star-ratings'
 
-const token = Cookie.get('token')
-let decode =''
-if (token) {
-  decode = Jwt(token)
-}
 
 class Menu extends React.Component{
 constructor(props){

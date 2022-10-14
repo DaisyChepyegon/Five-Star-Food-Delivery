@@ -2,6 +2,7 @@
   "dependencies": {
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
+    "react-router-dom": "^6.4.2",
     "react-slider": "^2.0.4",
     "react-slideshow-image": "^4.0.5"
   }
