@@ -1,36 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 
-function Navbar({ customer, setCustomer }) {
-  function handleLogoutClick() {
-    fetch("/logout", { method: "DELETE" }).then((r) => {
-      if (r.ok) {
-        setCustomer(null);
-      }
-    });
-  }
-
-  return (
-    <header>
-      <div>
-        <Link to="/">Welcome</Link>
-      </div>
-      <div>
-        {customer ? (
-          <button onClick={handleLogoutClick}>Logout</button>
-        ) : (
-          <>
-            <Link to="/signup">Signup</Link>
-            <Link to="/login">Login</Link>
-          </>
-        )}
-      </div>
-    </header>
-  );
-}
-
-export default Navbar;
-
+function Navbar() {
   return (
     <div>
      <nav className='navbar navbar-expand-lg navbar-dark bg-warning'>
@@ -63,7 +34,7 @@ export default Navbar;
             </UncontrolledDropdown>
               </ul>
             </div> 
-
+        
     </nav>
     
     </div>
