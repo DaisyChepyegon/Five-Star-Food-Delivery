@@ -1,3 +1,5 @@
+import React from 'react'
+
 const token = Cookie.get('token')
 let decode =''
 if (token) {
