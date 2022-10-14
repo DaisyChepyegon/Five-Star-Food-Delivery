@@ -1,7 +1,6 @@
 import React, { createRef, useState } from "react";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
-import AboutUs from "../about/AboutUs";
 import NavBar from "../navbar/NavBar";
 import Contact from "../contact/Contact";
 import Products from "../products/Products";
@@ -32,10 +31,6 @@ const Home = () => {
   ];
   
   const sections = [
-    {
-      name: "ABOUT US",
-      content: <AboutUs />,
-    },
     {
       name: "PRODUCTS",
       content: <Products />,
