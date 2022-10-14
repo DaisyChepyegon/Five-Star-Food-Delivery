@@ -22,4 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-![image](https://user-images.githubusercontent.com/90573812/195771985-2e9cab46-0fea-4c30-8743-7895de11a42a.png)
+
+*Home page
+![image](https://user-images.githubusercontent.com/90573812/195775265-49712dc0-631e-4633-8447-70a28b264cb7.png)
+
