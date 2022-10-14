@@ -10,7 +10,7 @@ const colors = {
 function Reviews() {
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
-  const [review, setReview] = useState("")
+  const [reviews, setReview] = useState("")
   const stars = Array(5).fill(0)
 
   function handleSubmit(e) {
@@ -21,11 +21,11 @@ function Reviews() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        review
+        reviews
       }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((review) => setReview(review));
+        r.json().then((reviews) => setReview(reviews));
       }
     });
   }
