@@ -1,10 +1,10 @@
-import React,{useState} from 'react'
-import { FaStar } from "react-icons/fa";
+import React, {useState} from 'react'
+import {FaStar} from "react-icons/fa";
 
 const colors = {
   orange: "#FFBA5A",
   grey: "#a9a9a9"
-  
+
 };
 
 function Reviews() {
@@ -18,11 +18,9 @@ function Reviews() {
     fetch("/menus", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
       },
-      body: JSON.stringify({
-        reviews
-      }),
+      body: JSON.stringify({reviews})
     }).then((r) => {
       if (r.ok) {
         r.json().then((reviews) => setReview(reviews));
@@ -44,41 +42,54 @@ function Reviews() {
 
 
   return (
-    <div style={styles.container}>
-      <h2>Ratings </h2>
-      <div style={styles.stars}>
-        {stars.map((_, index) => {
+    <div style={
+      styles.container
+    }>
+      <h2>Ratings
+      </h2>
+      <div style={
+        styles.stars
+      }>
+        {
+        stars.map((_, index) => {
           return (
-            <FaStar
-              key={index}
+            <FaStar key={index}
               size={24}
-              onClick={() => handleClick(index + 1)}
-              onMouseOver={() => handleMouseOver(index + 1)}
+              onClick={
+                () => handleClick(index + 1)
+              }
+              onMouseOver={
+                () => handleMouseOver(index + 1)
+              }
               onMouseLeave={handleMouseLeave}
-              color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
-              style={{
-                marginRight: 10,
-                cursor: "pointer"
-              }}
-            />
+              color={
+                (hoverValue || currentValue) > index ? colors.orange : colors.grey
+              }
+              style={
+                {
+                  marginRight: 10,
+                  cursor: "pointer"
+                }
+              }/>
           )
-        })}
-      </div>
-      <form 
-      style={styles.form}
-      onSubmit={handleSubmit}>
-      <h2>Add Review</h2>
-      <textarea
-        style={styles.textarea}
-      />
+        })
+      } </div>
+      <form style={
+          styles.form
+        }
+        onSubmit={handleSubmit}>
+        <h2>Add Review</h2>
+        <textarea style={
+          styles.textarea
+        }/>
 
-      <button
-        style={styles.button}
-      >
-        Submit
-      </button>
+        <button style={
+          styles.button
+        }>
+          Submit
+        </button>
       </form>
-      
+
     </div>
   );
 };
@@ -92,7 +103,7 @@ const styles = {
   },
   stars: {
     display: "flex",
-    flexDirection: "row",
+    flexDirection: "row"
   },
   form: {
     display: "flex",
@@ -111,11 +122,10 @@ const styles = {
     border: "1px solid #a9a9a9",
     borderRadius: 5,
     width: 300,
-    padding: 10,
+    padding: 10
   }
 
 };
-
 
 
 export default Reviews
