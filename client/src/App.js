@@ -1,19 +1,49 @@
-import { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { Switch, Route } from "react-router-dom";
+import SignUp from "./SignUp";
+import Login from "./Login";
+import NavBar from "./NavBar";
+import Welcome from "./Welcome";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [customer, setCustomer] = useState(null);
 
   useEffect(() => {
-    fetch("/hello")
-      .then((r) => r.json())
-      .then((data) => setCount(data.count));
+    // auto-login
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((customer) => setCustomer(customer));
+      }
+    });
   }, []);
 
   return (
-    <div className="App">
-      <h1>Page Count: {count}</h1>
-    </div>
+    <>
+      <NavBar customer={customer} setCustomer={setCustomer} />
+      <main>
+        {customer ? (
+          <Switch>
+            <Route path="/">
+              <Welcome customer={customer}/>
+            </Route>
+          </Switch>
+        ) : (
+          <Switch>
+            <Route path="/signup">
+              <SignUp setCustomer={setCustomer} />
+            </Route>
+            <Route path="/login">
+              <Login setCustomer={setCustomer} />
+            </Route>
+            <Route path="/">
+              <Welcome />
+            </Route>
+          </Switch>
+        )}
+      </main>
+    </>
   );
 }
 
 export default App;
+
