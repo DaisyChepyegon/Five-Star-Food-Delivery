@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import SignUp from "./SignUp";
 import Login from "./Login";
-import NavBar from "./NavBar";
+import Navbar from "./Navbar";
 import Welcome from "./Welcome";
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
 
   return (
     <>
-      <NavBar customer={customer} setCustomer={setCustomer} />
+      <Navbar customer={customer} setCustomer={setCustomer} />
       <main>
         {customer ? (
           <Switch>
