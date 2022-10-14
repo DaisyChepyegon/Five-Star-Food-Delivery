@@ -5,8 +5,8 @@ import Home from './Components/home/Home';
 import SignUp from "./Components/SignUp";
 import Login from "./Components/Login";
 import Navbar from "./Components/navbar/NavBar";
-import Welcome from "./Components/Welcome";
-import Menu from './Components/menu/menu'
+// import Welcome from "./Components/Welcome";
+// import Menu from './Components/menu/menu'
 import Restaurants from './Components/restaurants/Restaurants'
 import Cart from './Components/cart/Cart'
 import Categories from './Components/categories/Categories'
@@ -14,7 +14,7 @@ import Searchby from './Components/searchby/Searchby'
 
 
 
-import Reviews from "./Components/Reviews/Reviews";
+// import Reviews from "./Components/Reviews/Reviews";
 
 function App() {
   const [customer, setCustomer] = useState(null);
@@ -30,20 +30,17 @@ function App() {
   
   return (
     <div className="App">
-      <Home />
-
-
+    
       <Navbar customer={customer} setCustomer={setCustomer} />
       <main>
         {customer ? (
           <Routes>
             <Route path="/">
-              <Welcome customer={customer}/>
+              <Home customer={customer}/>
             </Route>
           </Routes>
         ) : (
           <Routes>
-            <Route exact path="/menu" element={<Menu />}/>
             <Route exact path="/restaurants" element={<Restaurants />}/>
             <Route exact path="/categories" element={<Categories/>}/>
             <Route exact path="/searchby" element={<Searchby />}/>
@@ -51,12 +48,10 @@ function App() {
           
             <Route path="/signup"> <SignUp setCustomer={setCustomer} /> </Route>
             <Route path="/login"> <Login setCustomer={setCustomer} /></Route>
-            <Route path="/"> <Welcome /></Route>
+
           </Routes>
         )}
       </main>
-
-      <Reviews/>
 
     </div>
   );
