@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Navbar({ customer, setCustomer }) {
   function handleLogoutClick() {
@@ -14,20 +14,20 @@ function Navbar({ customer, setCustomer }) {
   return (
     <header>
       <div>
-        <Link to="/">Welcome</Link>
+        <NavLink to="/">Welcome</NavLink>
       </div>
       <div>
         {customer ? (
           <button onClick={handleLogoutClick}>Logout</button>
         ) : (
           <> 
-            <Link to="/menu">Menu</Link>
-            <Link to="/restaurants">Restaurants</Link>
-            <Link to="/categories">Categories</Link>
-            <Link to="/searchby">Search By</Link>
-            <Link to="/cart">Cart</Link>
-            <Link to="/signup">Signup</Link>
-            <Link to="/login">Login</Link>
+            <NavLink to="/menu">Menu</NavLink>
+            <NavLink to="/restaurants">Restaurants</NavLink>
+            <NavLink to="/categories">Categories</NavLink>
+            <NavLink to="/searchby">Search By</NavLink>
+            <NavLink to="/cart">Cart</NavLink>
+            <NavLink to="/signup">Signup</NavLink>
+            <NavLink to="/login">Login</NavLink>
           </>
         )}
       </div>
