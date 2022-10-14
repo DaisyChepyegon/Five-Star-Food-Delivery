@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
     "react-slideshow-image": "^4.0.5"
   }

@@ -3,9 +3,13 @@ import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import AboutUs from "../about/AboutUs";
 import NavBar from "../navbar/NavBar";
+import Contact from "../contact/Contact";
+import Products from "../products/Products";
+import Help from "../help/Help";
+import Awards from "../awards/Awards";
+
 import styles from "./home.module.css";
 import "./indicators.css";
-import Contact from "../contact/Contact";
 
 const Home = () => {
   const [index, setIndex] = useState(0);
@@ -31,6 +35,18 @@ const Home = () => {
     {
       name: "ABOUT US",
       content: <AboutUs />,
+    },
+    {
+      name: "PRODUCTS",
+      content: <Products />,
+    },
+    {
+      name: "AWARDS",
+      content: <Awards />,
+    },
+    {
+      name: "HELP",
+      content: <Help />,
     },
     {
       name: "CONTACT",
