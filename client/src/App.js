@@ -13,6 +13,9 @@ import Categories from './Components/categories/Categories'
 import Searchby from './Components/searchby/Searchby'
 
 
+
+import Reviews from "./Components/Reviews/Reviews";
+
 function App() {
   const [customer, setCustomer] = useState(null);
 
@@ -28,6 +31,8 @@ function App() {
   return (
     <div className="App">
       <Home />
+
+
       <Navbar customer={customer} setCustomer={setCustomer} />
       <main>
         {customer ? (
@@ -50,6 +55,9 @@ function App() {
           </Switch>
         )}
       </main>
+
+      <Reviews/>
+
     </div>
   );
 }
