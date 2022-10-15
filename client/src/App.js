@@ -46,7 +46,7 @@ function App() {
           
             <Route path="/signup"> <SignUp setCustomer={setCustomer} /> </Route>
             <Route path="/login"> <Login setCustomer={setCustomer} /></Route>
-            <Route path="/"> <Welcome /></Route>
+
           </Switch>
         )}
       </main>
