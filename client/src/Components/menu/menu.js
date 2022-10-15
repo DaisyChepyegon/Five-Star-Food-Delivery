@@ -32,6 +32,7 @@ function Menu() {
       newCart.push(itemInCart);
     }
     setCart(newCart);
+   
   }
 
 
