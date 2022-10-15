@@ -1,0 +1,14 @@
+.display{
+  display: flex;
+  flex-direction: column;
+}
+.display img{
+  width:  100%;
+  height: 50%;
+}
+.btn{
+  width: 350px;
+  display: flex;
+  flex-direction: row;
+  color: black;
+}

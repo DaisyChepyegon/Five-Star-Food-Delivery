@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import {useNavigate} from "react-router-dom"
 
 function Login({ setCustomer }) {
+  const navigate = useNavigate()
   const [first_name, setFirst_name] = useState("");
   const [password, setPassword] = useState("");
 
@@ -15,6 +18,7 @@ function Login({ setCustomer }) {
     }).then((r) => {
       if (r.ok) {
         r.json().then((customer) => setCustomer(customer));
+        navigate("/home")
       }
     });
   }
@@ -41,6 +45,7 @@ function Login({ setCustomer }) {
         />
         <button type="submit">Login</button>
       </form>
+      <NavLink to="/signup">Don't have an Account? SignUp</NavLink>
     </div>
   );
 }

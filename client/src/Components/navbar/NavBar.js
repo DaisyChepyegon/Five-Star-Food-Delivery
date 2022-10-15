@@ -1,28 +1,31 @@
 
 import React from 'react'
 import { NavLink } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 function Navbar({ customer, setCustomer }) {
+  const navigate = useNavigate();
 
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
         setCustomer(null);
+        navigate("/login")
       }
     });
   }
 
   return (
     <nav>
-      <div>
-        <NavLink to="/home">Home</NavLink>
+      <div className='navigate'>
+        <NavLink to="/home">Five Star Food Delivery</NavLink>
         <NavLink to="/menu">Menu</NavLink>
-        {/* <NavLink to="/restaurants">Restaurants</NavLink> */}
+        <NavLink to="/restaurants">Restaurants</NavLink>
         <NavLink to="/categories">Categories</NavLink>
         <NavLink to="/searchby">Search By</NavLink>
         <NavLink to="/cart">Cart</NavLink>
       </div>
-      <div>
+      <div className='navigates'>
         {customer ? (
           <button onClick={handleLogoutClick}>Logout</button>
         ) : (

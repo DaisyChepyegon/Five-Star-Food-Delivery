@@ -7,7 +7,7 @@ export default function CreateRestaurant() {
             name: e.target.name.value,
             location: e.target.location.value,
         };
-        const response = await fetch("http://localhost:4000/restaurants", 
+        const response = await fetch("http://127.0.0.1:3000/restaurants", 
         {
             method: "POST",
             headers: {

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 function SignUp({ setCustomer }) {
   const [first_name, setFirst_name] = useState("");
@@ -43,7 +44,7 @@ function SignUp({ setCustomer }) {
           type="text"
           id="second_name"
           autoComplete="off"
-          value={first_name}
+          value={second_name}
           onChange={(e) => setSecond_name(e.target.value)}
         />
         <label htmlFor="password">Password</label>
@@ -64,6 +65,7 @@ function SignUp({ setCustomer }) {
         />
         <button type="submit">Sign Up</button>
       </form>
+      <NavLink to="/login">Already have an Account? LogIn</NavLink>
     </div>
   );
 }

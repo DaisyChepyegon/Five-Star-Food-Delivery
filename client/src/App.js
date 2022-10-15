@@ -6,7 +6,7 @@ import SignUp from "./Components/SignUp";
 import Login from "./Components/Login";
 import Navbar from "./Components/navbar/NavBar";
 import Menu from './Components/menu/menu'
-// import Restaurants from './Components/restaurants/Restaurants'
+import Restaurants from './Components/restaurants/Restaurants'
 import Cart from './Components/cart/Cart'
 import Categories from './Components/categories/Categories'
 import Searchby from './Components/searchby/Searchby'
@@ -40,7 +40,7 @@ function App() {
         {/* {customer ? ( */}
           <Routes>
             <Route path="/home" element = {<Home customer={customer}/>} />
-            {/* <Route path="/restaurants" element = {<Restaurants/>} /> */}
+            <Route path="/restaurants" element = {<Restaurants/>} />
             <Route path="/menu" element = {<Menu/>} />
             <Route path="/categories" element = {<Categories/>} />
             <Route path="/searchby" element = {<Searchby/>} />

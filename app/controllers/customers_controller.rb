@@ -3,7 +3,7 @@ class CustomersController < ApplicationController
 
     def create
         customer = Customer.create(customer_params)
-        if user.valid?
+        if customer.valid?
             render json: customer, status: :created
         else
             render json: { errors: customer.errors.full_messages }, status: :unprocessable_entity
@@ -16,10 +16,12 @@ class CustomersController < ApplicationController
     end
 
     def authorize 
-        return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
+        return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :customer_id
     end
 
-    def user_params 
+    private
+
+    def customer_params 
         params.permit(:first_name, :second_name, :password, :password_confirmation)
     end
 end

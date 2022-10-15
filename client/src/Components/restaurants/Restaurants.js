@@ -1,5 +1,5 @@
 import React, {useEffect, useState } from "react";
-import Restaurant from './Components/restaurant/Restaurant';
+import Restaurant from './Restaurants';
 
 
 function Restaurants() {
@@ -8,7 +8,7 @@ function Restaurants() {
     //adding the useEffect hook to initialize the side-effect event
 
     useEffect(() => {
-        fetch("http://localhost:4000/restaurants")
+        fetch("http://127.0.0.1:3000/restaurants")
         .then((response) => response.json())
         .then((restaurants) => {
 
@@ -29,6 +29,7 @@ function Restaurants() {
     return (
         <div className="Restaurants">
             {restaurant}
+            
         </div>
     );
 
