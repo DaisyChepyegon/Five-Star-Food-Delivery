@@ -18,13 +18,18 @@ import Searchby from './Components/searchby/Searchby'
 function App() {
   const [customer, setCustomer] = useState(null);
 
-  useEffect(() => {
-    // auto-login
-    fetch("/me").then((r) => {
+  async function fetching(){
+    await fetch("http://127.0.0.1:3000/me").then((r) => {
       if (r.ok) {
         r.json().then((customer) => setCustomer(customer));
       }
     });
+  }
+  
+
+  useEffect(() => {
+    // auto-login
+   fetching()
   }, []);
   
   return (
@@ -32,26 +37,25 @@ function App() {
     
       <Navbar customer={customer} setCustomer={setCustomer} />
       <main>
-        {customer ? (
+        {/* {customer ? ( */}
           <Routes>
-            <Route path="/home">
-              <Home customer={customer}/>
-            </Route>
-            {/* <Route path="/restaurants"> <Restaurants /></Route> */}
-            <Route path="/menu"> <Menu /></Route>
-            <Route path="/categories"> <Categories /></Route>
-            <Route path="/searchby"> <Searchby /></Route>
-            <Route path="/cart"> <Cart /></Route>
+            <Route path="/home" element = {<Home customer={customer}/>} />
+            {/* <Route path="/restaurants" element = {<Restaurants/>} /> */}
+            <Route path="/menu" element = {<Menu/>} />
+            <Route path="/categories" element = {<Categories/>} />
+            <Route path="/searchby" element = {<Searchby/>} />
+            <Route path="/cart" element = {<Cart/>} />
           </Routes>
           
-        ) : (
+        {/* ) : (  */}
           <Routes>
           
-            <Route path="/signup"> <SignUp setCustomer={setCustomer} /> </Route>
-            <Route path="/login"> <Login setCustomer={setCustomer} /></Route>
+            <Route path="/signup" element ={<SignUp setCustomer={setCustomer} />} />
+            <Route path="/" element ={<Login setCustomer={setCustomer} />} />
+            <Route path="/login" element ={<Login setCustomer={setCustomer} />} />
 
           </Routes>
-        )}
+         {/* ) } */}
       </main>
 
     </div>

@@ -1,40 +1,18 @@
-// import React from "react";
-
-// const Menu = ({ items }) => {
-//   return (
-//   //   <div className="section-center">
-//   //     {items.map((item) => {
-//   //       const { id, title, img, desc, price } = item;
-//   //       return (
-//   //           <article key={id} className="menu-item">
-//   //           <img src={img} alt={title} className="photo" />
-//   //           <div className="item-info">
-//   //             <header>
-//   //               <h4>{title}</h4>
-//   //               <h4 className="price">Ksh{price}</h4>
-//   //               </header>
-//   //               <p className="item-text">{desc}</p>
-//   //           </div>
-//   //         </article>
-//   //       );
-//   //     })}
-//   //   </div>
-//   // );
-// };
-
-// export default Menu;
-
 
 import React, {useState, useEffect} from "react";
 
 function Menu() {
   const [menu, setmenus] = useState([]);
 
+
+  async function fetching(){
+    await fetch("http://127.0.0.1:3000/menus")
+    .then((resp) => resp.json())
+    .then((menu) => setmenus(menu));
+  }
   //fetch data
   useEffect(() => {
-    fetch("/menus")
-      .then((resp) => resp.json())
-      .then((menu) => setmenus(menu));
+    fetching()
   }, []);
   console.log(menu);
 
