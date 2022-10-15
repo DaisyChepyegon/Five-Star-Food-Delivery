@@ -4,8 +4,6 @@ Rails.application.routes.draw do
   resources :restaurants, only: [:index, :show, :create, :update, :destroy]
 
 
-  get '/hello', to: 'application#hello_world'
-
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 

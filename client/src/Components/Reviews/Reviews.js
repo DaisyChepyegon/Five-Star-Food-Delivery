@@ -15,7 +15,7 @@ function Reviews() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("/menus", {
+    fetch("/menus/:id", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

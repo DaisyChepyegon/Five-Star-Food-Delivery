@@ -3,6 +3,7 @@ import React from 'react'
 import { NavLink } from "react-router-dom";
 
 function Navbar({ customer, setCustomer }) {
+
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
@@ -14,19 +15,18 @@ function Navbar({ customer, setCustomer }) {
   return (
     <nav>
       <div>
-        <NavLink to="/">Welcome</NavLink>
+        <NavLink to="/home">Home</NavLink>
+        <NavLink to="/menu">Menu</NavLink>
+        {/* <NavLink to="/restaurants">Restaurants</NavLink> */}
+        <NavLink to="/categories">Categories</NavLink>
+        <NavLink to="/searchby">Search By</NavLink>
+        <NavLink to="/cart">Cart</NavLink>
       </div>
       <div>
         {customer ? (
           <button onClick={handleLogoutClick}>Logout</button>
         ) : (
           <> 
-            <NavLink to="/home">Home</NavLink>
-            <NavLink to="/menu">Menu</NavLink>
-            <NavLink to="/restaurants">Restaurants</NavLink>
-            <NavLink to="/categories">Categories</NavLink>
-            <NavLink to="/searchby">Search By</NavLink>
-            <NavLink to="/cart">Cart</NavLink>
             <NavLink to="/signup">Signup</NavLink>
             <NavLink to="/login">Login</NavLink>
           </>
