@@ -49,13 +49,13 @@ function App() {
           
         {/* ) : (  */}
           <Routes>
-          
             <Route path="/signup" element ={<SignUp setCustomer={setCustomer} />} />
             <Route path="/" element ={<Login setCustomer={setCustomer} />} />
             <Route path="/login" element ={<Login setCustomer={setCustomer} />} />
 
           </Routes>
          {/* ) } */}
+
       </main>
 
     </div>

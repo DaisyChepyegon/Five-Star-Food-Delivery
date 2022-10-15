@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-    before_action :authorize, only: [show]
+    before_action :authorize, only: [:show]
 
     def create
         customer = Customer.create(customer_params)
