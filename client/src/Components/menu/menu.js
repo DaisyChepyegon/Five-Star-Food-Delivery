@@ -1,5 +1,15 @@
 import React from "react";
 
+// fetch function
+fetch("http://localhost:3000")
+    .then(res => res.json())
+    .then(json => {
+        json.map(data => {
+            console.log(data)
+            tbody.append(td_fun(data));
+        })
+    })
+
 const Menu = ({ items }) => {
   return (
     <div className="section-center">
