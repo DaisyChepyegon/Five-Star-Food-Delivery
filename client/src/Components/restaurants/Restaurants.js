@@ -7,24 +7,27 @@ function Restaurants() {
 
     //adding the useEffect hook to initialize the side-effect event
 
-    useEffect(() => {
-        fetch("http://127.0.0.1:3000/restaurants")
+    async function fetching(){
+        await fetch("http://127.0.0.1:3000/restaurants")
         .then((response) => response.json())
         .then((restaurants) => {
 
             setRestaurants(restaurants)
         })
+    }
+
+    useEffect(() => {
+       fetching()
     }, []);
 
-    let restaurant = (
-        restaurants.map((restaurant) => (
+    let restaurant = restaurants.map((restaurant) => (
             <div key={restaurant.id}>
                 <p> Name: {restaurant.name}</p>
                 <p>Location: {restaurant.location}</p>
                 <Restaurant/>
             </div>
-        ))
-    )
+    ))
+    
 
     return (
         <div className="Restaurants">

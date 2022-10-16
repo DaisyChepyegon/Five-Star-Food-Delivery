@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Displaycart from './Displaycart';
 import Menu from '../menu/menu';
+import "./Cart.css"
 
 
 
@@ -30,14 +31,14 @@ function Cart() {
         </button>
 
         <button onClick={() => navigateTo(PAGE_MENUU)}>
-          Back to menuu
+          Go to Menu
         </button>
       </header>
       {page === PAGE_MENUU && (
-        <Displaycart cart={cart} setCart={setCart} />
+        <Menu cart={cart} setCart={setCart} />
       )}
       {page === PAGE_CART && (
-        <Menu cart={cart} setCart={setCart} />
+        <Displaycart cart={cart} setCart={setCart} />
       )}
       
     </div>

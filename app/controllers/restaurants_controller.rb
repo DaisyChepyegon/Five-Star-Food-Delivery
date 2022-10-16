@@ -3,12 +3,12 @@ class RestaurantsController < ApplicationController
 
   def index
     restaurant = Restaurant.all 
-    render json: restaurant, include: :reviews
+    render json: restaurant
   end
 
   def show
     restaurant = find_restaurant
-      render json: restaurant, include: :reviews
+      render json: restaurant
   end
 
   def create

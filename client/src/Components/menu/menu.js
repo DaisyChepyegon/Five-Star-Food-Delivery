@@ -15,9 +15,10 @@ function Menu() {
   useEffect(() => {
     fetching()
   }, []);
-  console.log(menu);
+  console.log(menu)
 
   const addToCart = (menuu) =>{
+    
     let newCart = [...cart];
     let itemInCart = newCart.find(
       (item) => menuu.name === item.name
@@ -37,23 +38,22 @@ function Menu() {
 
 
   let container = menu.map((menuu) => (
-    <div className='display'>
       <div className='contain'>
+
+        <img className='logo' src={menuu.image} alt={menuu.name} />
         <h3>{menuu.name}</h3>
-        <img src={menuu.image} alt={menuu.name} />
         <h4>Ksh. {menuu.price}</h4>
         <h4>{menuu.category}</h4>
         <p>{menuu.description}</p>
-        <div className="btn">
-          <button onClick={()=>addToCart(menuu)}>Add to Cart</button>
-          <button>Add a Review</button>
-        </div>
+        <button onClick={()=>addToCart(menuu)}>Add to Cart</button>
+        <button>Add a Review</button>
+      
       </div>
-    </div>
+  
   ))
 
   return (
-    <div className='display'>
+    <div>
       <div>{container}</div>
     </div>
   )

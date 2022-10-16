@@ -41,7 +41,8 @@ function Displaycart({cart, setCart}) {
     {cart.map((menuu, idx) => (
           <div className="menuu" key={idx}>
             <h3>{menuu.name}</h3>
-            <h4>${menuu.price}</h4>
+            <h4>Ksh {menuu.price}</h4>
+            <h4>{menuu.description}</h4>
             <input
               value={menuu.quantity}
               onChange={(e) =>

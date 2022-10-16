@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {FaStar} from "react-icons/fa";
 
+
 const colors = {
   orange: "#FFBA5A",
   grey: "#a9a9a9"
@@ -15,7 +16,7 @@ function Reviews() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("/menus/:id", {
+    fetch("/reviews", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
