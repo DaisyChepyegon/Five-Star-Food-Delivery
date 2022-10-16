@@ -1,11 +1,11 @@
 
 
-Restaurant.create(name: "Chepchikoni", location: "Thika road")
-Restaurant.create(name: "CJ's", location: "Koinange street")
-Restaurant.create(name: "Urban Eatery", location: "PwC tower")
-Restaurant.create(name: "Tatu Restaurant", location: "Harry Thuku road")
-Restaurant.create(name: "Hero Restaurant", location: "Village Market")
-Restaurant.create(name: "Nairobi Street Kitchen", location: "Mpaka road")
+Restaurant.create(name: "Chepchikoni", location: "Thika road", image:"https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60")
+Restaurant.create(name: "CJ's", location: "Koinange street",  image:"https://images.unsplash.com/photo-1537047902294-62a40c20a6ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cmVzdGF1cmFudHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60")
+Restaurant.create(name: "Urban Eatery", location: "PwC tower", image:"https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cmVzdGF1cmFudHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60")
+Restaurant.create(name: "Tatu Restaurant", location: "Harry Thuku road", image:"https://images.unsplash.com/photo-1578474846511-04ba529f0b88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHJlc3RhdXJhbnR8ZW58MHx8MHx8&auto=format&fit=crop&w=700&q=60")
+Restaurant.create(name: "Hero Restaurant", location: "Village Market", image:"https://images.unsplash.com/photo-1592861956120-e524fc739696?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHJlc3RhdXJhbnR8ZW58MHx8MHx8&auto=format&fit=crop&w=700&q=60")
+Restaurant.create(name: "Nairobi Street Kitchen", location: "Mpaka road", image:"https://images.unsplash.com/photo-1554679665-f5537f187268?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHJlc3RhdXJhbnR8ZW58MHx8MHx8&auto=format&fit=crop&w=700&q=60")
 
 Menu.create(name: "tea", price: "50", category: "breafast", description: "very milky and sweet", image: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8dGVhfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=700&q=60")
 Menu.create(name: "mandazi", price: "30", category: "breakfast", description: "deep fried dough", image: "https://img.buzzfeed.com/thumbnailer-prod-us-east-1/69e427ab880d491d8aba5877bb82d975/OO_Mandazi.jpg?resize=1200:*")
