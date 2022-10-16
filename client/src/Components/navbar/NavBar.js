@@ -1,13 +1,16 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import styles from "./navbar.module.css";
 
 function Navbar({ customer, setCustomer }) {
+  const navigate = useNavigate()
+
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
         setCustomer(null);
+        navigate("/login")
       }
     });
   }
@@ -20,7 +23,6 @@ function Navbar({ customer, setCustomer }) {
         </li></NavLink>
         <NavLink to="/restaurants"> <li className={styles.item}>Restaurants</li></NavLink>
         <NavLink to="/categories"> <li className={styles.item}>Category</li></NavLink>
-        <NavLink to="/searchby"> <li className={styles.item}>Search By</li></NavLink>
       </ul>
       <ul>
       <NavLink to="/cart"> <li className={styles.item}>

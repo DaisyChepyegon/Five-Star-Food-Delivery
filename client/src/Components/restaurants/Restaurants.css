@@ -1,0 +1,20 @@
+.rest{
+  display: block;
+  column-count: 2;
+  width: 92%;
+  margin: 10px 50px;
+  border: solid grey 0.2px;
+  border-radius: 0.25rem; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.rest img{
+  display: inline-block;
+  margin: 0px;
+  height: 250px;
+  width: 300px;
+  border-radius: 0.25rem; 
+}
+.rest button{
+  margin-top: 30px;
+  height: 50px;
+}

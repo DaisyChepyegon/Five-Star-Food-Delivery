@@ -31,7 +31,7 @@ function Cart() {
         </button>
 
         <button onClick={() => navigateTo(PAGE_MENUU)}>
-          Go to Menu
+         Menus
         </button>
       </header>
       {page === PAGE_MENUU && (

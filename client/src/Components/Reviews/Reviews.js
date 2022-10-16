@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import "./Reviews.css"
 
 
+
 const colors = {
   orange: "#FFBA5A",
   grey: "#a9a9a9"
@@ -16,6 +17,7 @@ function Reviews() {
   const [hoverValue, setHoverValue] = useState(undefined);
   const [reviews, setReview] = useState("")
   const [review, setReviews] = useState([])
+  const [delreview, setDelreviews] = useState([])
   const stars = Array(5).fill(0)
 
   async function fetchingreviews(){
@@ -30,14 +32,22 @@ function Reviews() {
   }, []);
   console.log(review)
 
+  const handleDelete=(id) => {
+    fetch(`http://localhost:4000/reviews/${id}`, {
+      method: "DELETE",
+    })
+      .then((r) => r.json())
+      .then((delreview) => setDelreviews(delreview));
+    }
+
   let container = review.map((item) => (
-    <div className='contain'>
+    <div className='contains'>
       <div className='rigth'>
       <h3>name:{item.name}</h3>
       <h4>{item.reviews}</h4>
       </div>
      <div className='left'>
-      <h3 onClick={handleDelete}>delete</h3>
+      <button onClick={handleDelete}>delete</button>
      </div>
       
     </div>

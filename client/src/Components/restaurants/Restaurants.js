@@ -1,5 +1,6 @@
 import React, {useEffect, useState } from "react";
 import Restaurant from "../restaurant/Restaurant"
+import "./Restaurants.css"
 
 
 
@@ -27,12 +28,15 @@ function Restaurants() {
     }, []);
 
     let restaurant = restaurants.map((restaurant) => (
-            <div key={restaurant.id}>
+        <div className="rest">
+              <div key={restaurant.id}>
                 <img className='restaurant-image' src={restaurant.image} alt="sample" />
-                <p> Name: {restaurant.name}</p>
+                <h3> Name: {restaurant.name}</h3>
                 <p>Location: {restaurant.location}</p>
-                <button onClick={handleClick}>Add a Restaurant</button>
+                <button className="btn" onClick={handleClick}>Add a Restaurant</button>
             </div>
+        </div>
+          
     ))
     
 

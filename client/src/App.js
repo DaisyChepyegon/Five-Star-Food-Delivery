@@ -9,7 +9,6 @@ import Menu from './Components/menu/menu'
 import Restaurants from './Components/restaurants/Restaurants'
 import Cart from './Components/cart/Cart'
 import Category from "./Components/categories/Category";
-import Searchby from './Components/searchby/Searchby'
 
 
 
@@ -43,7 +42,6 @@ function App() {
             <Route path="/restaurants" element = {<Restaurants/>} />
             <Route path="/menu" element = {<Menu/>} />
             <Route path="/categories" element = {<Category/>} />
-            <Route path="/searchby" element = {<Searchby/>} />
             <Route path="/cart" element = {<Cart/>} />
           </Routes>
           
