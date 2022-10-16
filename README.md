@@ -131,6 +131,7 @@ https://github.com/DaisyChepyegon/Five-Star-Food-Delivery
 ## Contact Information
 * Email: daisychpyegon@gmail.com
 * Email: Glennnguyo1000@gmail.com
+* Emain: mwalejoshua89@gmail.com
 
 
 # Licence
@@ -166,7 +167,4 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-
-*Home page
-![image](https://user-images.githubusercontent.com/90573812/195775265-49712dc0-631e-4633-8447-70a28b264cb7.png)
 

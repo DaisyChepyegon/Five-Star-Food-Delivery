@@ -6,3 +6,15 @@
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
+.contain{
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  border: solid grey 0.2px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  width: 100%;
+}
+.left{
+  border: solid grey 0.2px;
+}

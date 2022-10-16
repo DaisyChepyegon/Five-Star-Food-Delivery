@@ -19,7 +19,7 @@ function Navbar({ customer, setCustomer }) {
           Menu
         </li></NavLink>
         <NavLink to="/restaurants"> <li className={styles.item}>Restaurants</li></NavLink>
-        <NavLink to="/categories"> <li className={styles.item}>Categories</li></NavLink>
+        <NavLink to="/categories"> <li className={styles.item}>Category</li></NavLink>
         <NavLink to="/searchby"> <li className={styles.item}>Search By</li></NavLink>
       </ul>
       <ul>

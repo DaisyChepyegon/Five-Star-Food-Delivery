@@ -32,10 +32,14 @@ function Reviews() {
 
   let container = review.map((item) => (
     <div className='contain'>
+      <div className='rigth'>
       <h3>name:{item.name}</h3>
-      <h4>{item.rating}</h4>
       <h4>{item.reviews}</h4>
-    
+      </div>
+     <div className='left'>
+      <h3 onClick={handleDelete}>delete</h3>
+     </div>
+      
     </div>
 
 ))
@@ -108,6 +112,7 @@ function Reviews() {
         }
         onSubmit={handleSubmit}>
         <h2>Add Review</h2>
+        name:<textarea/>
         <textarea style={
           styles.textarea
         }/>

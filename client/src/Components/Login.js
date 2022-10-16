@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import {useNavigate} from "react-router-dom"
+import "./Login.css"
 
 function Login({ setCustomer }) {
   const navigate = useNavigate()

@@ -8,7 +8,7 @@ import Navbar from "./Components/navbar/NavBar";
 import Menu from './Components/menu/menu'
 import Restaurants from './Components/restaurants/Restaurants'
 import Cart from './Components/cart/Cart'
-import Categories from './Components/categories/Categories'
+import Category from "./Components/categories/Category";
 import Searchby from './Components/searchby/Searchby'
 
 
@@ -42,7 +42,7 @@ function App() {
             <Route path="/home" element = {<Home customer={customer}/>} />
             <Route path="/restaurants" element = {<Restaurants/>} />
             <Route path="/menu" element = {<Menu/>} />
-            <Route path="/categories" element = {<Categories/>} />
+            <Route path="/categories" element = {<Category/>} />
             <Route path="/searchby" element = {<Searchby/>} />
             <Route path="/cart" element = {<Cart/>} />
           </Routes>
