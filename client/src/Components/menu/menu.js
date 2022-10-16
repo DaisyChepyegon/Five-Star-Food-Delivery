@@ -1,9 +1,15 @@
 import './menu.css'
 import React, {useState, useEffect} from "react";
+import Reviews from '../Reviews/Reviews';
 
 function Menu() {
   const [menu, setmenus] = useState([]);
   const [cart, setCart] = useState([]);
+  const [popup, setPopup] = useState(false);
+
+  function handleClick(){
+    setPopup(!popup);
+  }
 
 
   async function fetching(){
@@ -11,11 +17,16 @@ function Menu() {
     .then((resp) => resp.json())
     .then((menu) => setmenus(menu));
   }
+
+ 
   //fetch data
   useEffect(() => {
     fetching()
+   
   }, []);
   console.log(menu)
+
+ 
 
   const addToCart = (menuu) =>{
     
@@ -46,7 +57,7 @@ function Menu() {
         <h4>{menuu.category}</h4>
         <p>{menuu.description}</p>
         <button onClick={()=>addToCart(menuu)}>Add to Cart</button>
-        <button>Add a Review</button>
+        <button onClick={handleClick}>Add a Review</button>
       
       </div>
   
@@ -54,7 +65,14 @@ function Menu() {
 
   return (
     <div>
-      <div>{container}</div>
+      
+      {
+        popup ?
+        <Reviews />
+        :
+        <div>{container}</div>
+      }
+      
     </div>
   )
 }

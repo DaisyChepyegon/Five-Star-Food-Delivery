@@ -1,5 +1,6 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {FaStar} from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 
 const colors = {
@@ -9,14 +10,26 @@ const colors = {
 };
 
 function Reviews() {
+  const navigate = useNavigate();
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
   const [reviews, setReview] = useState("")
   const stars = Array(5).fill(0)
 
+  async function fetchingreviews(){
+    await fetch("http://127.0.0.1:3000/reviews")
+    .then((resp) => resp.json())
+    .then((reviews) => setReview(reviews));
+  }
+
+  useEffect(() => {
+    fetchingreviews()
+   
+  }, []);
+
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("/reviews", {
+    fetch("http://127.0.0.1:3000/review", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -25,6 +38,7 @@ function Reviews() {
     }).then((r) => {
       if (r.ok) {
         r.json().then((reviews) => setReview(reviews));
+        navigate("/home")
       }
     });
   }

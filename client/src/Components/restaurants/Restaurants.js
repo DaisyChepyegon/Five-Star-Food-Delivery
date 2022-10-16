@@ -22,6 +22,7 @@ function Restaurants() {
 
     let restaurant = restaurants.map((restaurant) => (
             <div key={restaurant.id}>
+                <img className='restaurant-image' src={restaurant.image} alt="sample" />
                 <p> Name: {restaurant.name}</p>
                 <p>Location: {restaurant.location}</p>
                 <Restaurant/>
