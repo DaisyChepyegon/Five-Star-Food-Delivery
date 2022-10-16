@@ -56,8 +56,8 @@ function Menu() {
         <h4>Ksh. {menuu.price}</h4>
         <h4>{menuu.category}</h4>
         <p>{menuu.description}</p>
-        <button onClick={()=>addToCart(menuu)}>Add to Cart</button>
-        <button onClick={handleClick}>Add a Review</button>
+        <button className='btn' onClick={()=>addToCart(menuu)}>Add to Cart</button>
+        <button className='btn' onClick={handleClick}>Add a Review</button>
       
       </div>
   
@@ -70,7 +70,7 @@ function Menu() {
         popup ?
         <Reviews />
         :
-        <div>{container}</div>
+        <div className='display'>{container}</div>
       }
       
     </div>

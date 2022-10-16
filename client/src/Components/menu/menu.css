@@ -21,15 +21,18 @@ p {
   margin-bottom: 0;
   padding-top: 1rem;
 }
-.contain{
+.display{
   display: block;
   margin:  0 auto;
   column-count: 4;
   column-gap: 15px;
   padding-left: 40px;
   padding-right: 40px;
+  width: 100%;
  
 }
-button{
-  background-color:#2F4454 
+.btn{
+  background-color:#2F4454;
+  padding: 2px;
+  width: 150px;
 } 

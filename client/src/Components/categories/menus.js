@@ -1,6 +1,6 @@
 // import React from 'react'
 
-// const Menu = ({ items }) => {
+// const Menus = ({ items }) => {
 //   return (
 //     <div className="section-center">
 //       {items.map((menuItem) => {
@@ -22,4 +22,4 @@
 //   )
 // }
 
-export default Menu
+// export default Menus

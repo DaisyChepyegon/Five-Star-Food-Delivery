@@ -1,5 +1,5 @@
 // import React, { useState } from 'react'
-// import Menu from './Menu'
+// import Menus from './Menus'
 // import Categories from './categories/Categories'
 // import items from './Components/data'
 
@@ -25,9 +25,31 @@
 //           <div className="underline"></div>
 //         </div>
 //         <Categories categories={categories} filterItems={filterItems} />
-//         <Menu items={menuItems} />
+//         <Menus items={menuItems} />
 //       </section>
 //     </main>
 //   )
 // }
 // export default Categories;
+import React from 'react'
+
+const Categories = ({ categories, filterItems }) => {
+  return (
+    <div className="btn-container">
+      {categories.map((category, index) => {
+        return (
+          <button
+            type="button"
+            className="filter-btn"
+            key={index}
+            onClick={() => filterItems(category)}
+          >
+            {category}
+          </button>
+        )
+      })}
+    </div>
+  )
+}
+
+export default Categories
