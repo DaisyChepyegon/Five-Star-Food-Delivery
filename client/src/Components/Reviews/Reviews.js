@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {FaStar} from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
+import "./Reviews.css"
 
 
 const colors = {
@@ -14,22 +15,34 @@ function Reviews() {
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
   const [reviews, setReview] = useState("")
+  const [review, setReviews] = useState([])
   const stars = Array(5).fill(0)
 
   async function fetchingreviews(){
     await fetch("http://127.0.0.1:3000/reviews")
     .then((resp) => resp.json())
-    .then((reviews) => setReview(reviews));
+    .then((review) => setReviews(review));
   }
 
   useEffect(() => {
     fetchingreviews()
    
   }, []);
+  console.log(review)
+
+  let container = review.map((item) => (
+    <div className='contain'>
+      <h3>name:{item.name}</h3>
+      <h4>{item.rating}</h4>
+      <h4>{item.reviews}</h4>
+    
+    </div>
+
+))
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("http://127.0.0.1:3000/review", {
+    fetch("http://127.0.0.1:3000/reviews", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -57,9 +70,10 @@ function Reviews() {
 
 
   return (
+    <div className="rating">
     <div style={
       styles.container
-    }>
+    } >
       <h2>Ratings
       </h2>
       <div style={
@@ -105,6 +119,11 @@ function Reviews() {
         </button>
       </form>
 
+    </div>
+
+    <div>
+      {container}
+    </div>
     </div>
   );
 };
